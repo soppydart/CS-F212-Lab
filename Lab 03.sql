@@ -2,7 +2,7 @@
 create table DEPT(
     dnum number primary key,
     dname varchar(20),
-    dloc varchar(10)
+    dloc varchar(20)
 );
 create table EMP(
     eno number primary key,
@@ -46,7 +46,11 @@ select eno, ename from emp;
 select * from emp where job='CLERK';
 
 --Show eno, name, sal for emp who are managers
+select m.eno, m.ename, m.sal from emp e, emp m where e.mgr = m.eno;
 
+--Show eno, name, sal for emp who are managers and belong to department = 30
+select m.eno, m.ename, m.sal from emp e, emp m where e.mgr = m.eno
+minus (select m.eno, m.ename, m.sal from emp e, emp m where e.mgr = m.eno and m.deptno != 30);
 
 --Display eno, ename, hiredate of emps who joined after 01-06-1981
 select eno, ename, hiredate from emp where hiredate > '01-JUN-81';
