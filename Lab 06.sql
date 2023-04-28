@@ -35,7 +35,7 @@ INSERT INTO supply VALUES(124, 11, 34);
 INSERT INTO supply VALUES(124, 13, 12);
 
 --Get pid, pname for those not supplied by any vendor
-
+select pid, pname from part minus (select part.pid, part.pname from part, supply where part.pid = supply.pid);
 
 --Get pid, pname which are supplied by all vendoes from DELHI
 select p.pid, p.pname,v.vloc from part p, supply s, vendor v where p.pid = s.pid and s.vid = v.vid and v.vloc = 'Delhi'
