@@ -89,7 +89,7 @@ if n>300 then
 dbms_output.put_line('BookId ' || id|| ' Title'  || Title ||' is costly' );
 
 else
-dbms_output.put_line('BookId ' || id|| ' Title ' || Title || ' is cheap');
+dbms_output.put_line('BookId ' || id|| ' Title' || Title || ' is cheap');
 end if;
 end;
 /
@@ -103,3 +103,36 @@ proc8(id);
 end;
 /
 
+--  Result
+--  BookId 101 Title is cheap
+
+
+--Procedure:
+--USE LOOP TO PRINT NUMBERS IN MULTIPLE OF 10'S
+
+create or replace procedure proc8 as
+n number:=10;
+begin
+loop
+dbms_output.put_line('Value of n is : '||n||' ');
+n:=n+10;
+exit when n>100;
+end loop;
+end;
+/
+
+--Execution:
+
+exec proc8
+
+--Result
+--Value of n is : 10 
+--Value of n is : 20 
+--Value of n is : 30 
+--Value of n is : 40 
+--Value of n is : 50 
+--Value of n is : 60 
+--Value of n is : 70 
+--Value of n is : 80 
+--Value of n is : 90 
+--Value of n is : 100 
